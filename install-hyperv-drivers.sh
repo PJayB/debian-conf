@@ -58,6 +58,7 @@ if [ "$GRUBVIDEO" == "" ]; then
 		exit 1
 	fi
 	MODIFIEDCOUNT=$(($MODIFIEDCOUNT+1))
+	sudo update-grub
 else
 	echo "Grub video resolution already configured."
 fi
