@@ -62,6 +62,12 @@ else
 	echo "Grub video resolution already configured."
 fi
 
+echo "** NOTE **"
+echo "Check the following files are all correct:"
+echo "  $GRUBCFG"
+echo "  $INITRAMFSCFG"
+
+
 if [ $MODIFIEDCOUNT -ne 0 ]; then
 	echo "You need to reboot now"
 fi
