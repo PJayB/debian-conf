@@ -14,7 +14,13 @@ if [ -f public_download.html ]; then
 	rm public_download.html
 fi
 
-UNITYURL=http://beta.unity3d.com/download/d72e16ff4aba/public_download.html
+if [ "$1" == "" ]; then
+	echo "Please get latest URL of public_download.html from the Forums!"
+	echo "https://forum.unity3d.com/threads/unity-on-linux-release-notes-and-known-issues.350256/"
+	exit 1
+fi
+
+UNITYURL=$1
 INSTALLER=$(curl $UNITYURL | grep -i -o -E "(http[^'>]*\.deb)")
 if [ $? -ne 0 ]; then
 	echo "Failed to acquire download URL from $UNITYURL"
