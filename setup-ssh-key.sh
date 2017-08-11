@@ -6,7 +6,7 @@ if [ "$1" == "" ]; then
 fi
 
 if [ ! -f ~/.ssh/id_rsa.pub ]; then
-	ssh-keygen -r rsa
+	ssh-keygen -t rsa
 fi
 cat ~/.ssh/id_rsa.pub | ssh $1 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
 
