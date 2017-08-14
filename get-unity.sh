@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ ! -f /usr/bin/curl ]; then
 	echo "Please install curl."
