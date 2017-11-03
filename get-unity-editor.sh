@@ -16,7 +16,7 @@ fi
 
 if [ "$1" == "" ]; then
 	echo "Please get latest URL of public_download.html from the Forums!"
-	echo "https://forum.unity3d.com/threads/unity-on-linux-release-notes-and-known-issues.350256/page-2"
+	xdg-open "https://forum.unity3d.com/threads/unity-on-linux-release-notes-and-known-issues.350256/page-2"
 	exit 1
 fi
 
