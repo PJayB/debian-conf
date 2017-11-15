@@ -1,11 +1,12 @@
 #!/bin/bash
 SYMBOLPACKAGES=
-LIBSTOFIND=$1
+LIBSTOFIND=$@
 if [[ "$LIBSTOFIND" == "" ]]; then
 	echo "Usage: $0 <library or binary name>"
 	exit 1
 fi
-for pkg in "$LIBSTOFIND"; do
+for pkg in $LIBSTOFIND; do
+	echo "Searching for packages matching '$pkg'..."
 	FOUNDPACKAGES=$(dpkg -S $pkg | grep -o -E "[a-zA-Z0-9_.-]+:[a-zA-Z0-9_.-]+")
 	#FOUNDPACKAGES=$(apt list --installed | grep -o -e "^[^/]*$pkg[^/]*")
 	if [[ "$FOUNDPACKAGES" == "" ]]; then
