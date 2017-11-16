@@ -39,6 +39,7 @@ done
 if [[ "$MISSINGPACKAGES" != "" ]]; then
 	echo "Couldn't find symbols for the following packages:" >&2
 	echo "$MISSINGPACKAGES" | tr " " "\n" | sort -u | tr "\n" " " >&2
+	echo >&2
 fi
 
 # Print the resulting packages and remove duplicates
