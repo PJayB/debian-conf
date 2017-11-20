@@ -1,4 +1,20 @@
 #!/bin/sh
-sudo apt-get install -y apt-file mercurial python-pip wget nano git ssh curl apcalc gdb auditd ddd binutils tweak tmux gcc g++ make build-essential cmake zip p7zip-full screen
+set -e
+
+sudo apt-get install -y \
+	apt-file \
+	mercurial python-pip \
+	git \
+	wget curl ssh \
+	gdb binutils auditd \
+	gcc g++ make cmake build-essential \
+	nano tweak apcalc \
+	zip p7zip-full \
+	tmux screen
+
+cp -nv config-templates/bash_aliases ~/.bash_aliases
+cp -nv config-templates/nanorc ~/.nanorc
+cp -nv config-templates/gitconfig ~/.gitconfig
+cp -nv config-templates/gdbinit ~/.gdbinit
 
 
