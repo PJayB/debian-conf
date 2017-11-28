@@ -4,7 +4,7 @@ set -e
 sudo apt-get install -y \
 	apt-file \
 	mercurial python-pip \
-	git \
+	git linux-tools-common \
 	wget curl ssh \
 	gdb binutils auditd \
 	gcc g++ make cmake build-essential \
