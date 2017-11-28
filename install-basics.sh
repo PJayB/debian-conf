@@ -6,7 +6,8 @@ sudo apt-get install -y \
 	mercurial python-pip \
 	git linux-tools-common \
 	wget curl ssh \
-	gdb binutils auditd valgrind \
+	gdb binutils auditd \
+    valgrind kcachegrind \
     linux-tools-$(uname -r) linux-cloud-tools-$(uname -r) \
 	gcc g++ make cmake build-essential \
 	nano tweak apcalc \
