@@ -4,9 +4,11 @@ set -e
 sudo apt-get install -y \
 	apt-file \
 	mercurial python-pip \
-	git \
+	git linux-tools-common \
 	wget curl ssh \
 	gdb binutils auditd \
+    valgrind kcachegrind \
+    linux-tools-$(uname -r) linux-cloud-tools-$(uname -r) \
 	gcc g++ make cmake build-essential \
 	nano tweak apcalc \
 	zip p7zip-full \
