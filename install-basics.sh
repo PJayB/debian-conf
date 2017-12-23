@@ -12,11 +12,15 @@ sudo apt-get install -y \
 	gcc g++ make cmake build-essential \
 	nano tweak apcalc \
 	zip p7zip-full \
-	tmux screen
+	tmux screen \
+	ddate lolcat
 
 cp -nv config-templates/bash_aliases ~/.bash_aliases
 cp -nv config-templates/nanorc ~/.nanorc
 cp -nv config-templates/gitconfig ~/.gitconfig
 cp -nv config-templates/gdbinit ~/.gdbinit
 
+if ! grep -q "lolcat" ~/.bashrc; then
+	echo "(ddate && fortune) | lolcat" >> ~/.bashrc
+fi
 
