@@ -13,7 +13,8 @@ sudo apt-get install -y \
 	nano tweak apcalc \
 	zip p7zip-full \
 	tmux screen \
-	ddate lolcat cmatrix
+	ddate lolcat cmatrix cowsay toilet espeak \
+    htop
 
 cp -nv config-templates/bash_aliases ~/.bash_aliases
 cp -nv config-templates/nanorc ~/.nanorc
