@@ -11,3 +11,8 @@ sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode s
 sudo apt-get update
 sudo apt-get install -y code
 
+if [ ! -d ~/.config/Code/User ]; then
+    mkdir -vp ~/.config/Code/User
+fi
+cp -vnr config-templates/vscode/* ~/.config/Code/User/
+

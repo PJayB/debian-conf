@@ -12,7 +12,9 @@ sudo apt-get install -y \
 	gcc g++ make cmake build-essential \
 	nano tweak apcalc \
 	zip p7zip-full \
-	tmux screen
+	tmux screen \
+	ddate lolcat cmatrix cowsay toilet espeak \
+    htop
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 

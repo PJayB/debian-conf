@@ -3,4 +3,4 @@
 alias nano="nano -c"
 alias unityvpn="~/openvpn/connect.sh"
 alias grepsrc="grep --color=auto -rIHn --include=\*.{h,cpp,cs,bindings}"
-
+alias neo="cmatrix"
