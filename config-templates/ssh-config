@@ -1,0 +1,21 @@
+Host unity3d.bitbucket.org
+    HostName bitbucket.org
+    User git
+    IdentityFile ~/.ssh/id_rsa_work
+
+Host personal.bitbucket.org
+    HostName bitbucket.org
+    User git
+    IdentityFile ~/.ssh/id_rsa_personal
+
+Host unity3d.github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_work
+
+Host personal.github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_rsa_personal
+
+

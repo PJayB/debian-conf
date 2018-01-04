@@ -1,0 +1,3 @@
+# basics-setup
+[[ $TERM != "screen" && $TERM != "xterm-256color" ]] && exec tmux
+
