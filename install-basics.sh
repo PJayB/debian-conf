@@ -5,7 +5,19 @@ if [ "$PKGMAN" = "" ]; then
     exit 1
 fi
 
-SHARED_PACKAGES="zsh git wget curl tmux screen mercurial python-pip gdb binutils gcc g++ make cmake nano zip valgrind"
+# CentOS has a frankly ANCIENT mercurial installation
+if [ "$PKGMAN" = "yum" ]; then
+sudo echo "[mercurial.selenic.com]
+name=mercurial.selenic.com
+baseurl=https://www.mercurial-scm.org/release/centos$releasever
+enabled=1
+# Temporary until we get a serious signing scheme in place,
+# check https://www.mercurial-scm.org/wiki/Download again
+gpgcheck=0" > /etc/yum.repos.d/mercurial.selenic.com.repo
+fi
+
+
+SHARED_PACKAGES="zsh git wget curl tmux screen python-pip mercurial gdb binutils gcc g++ make cmake nano zip valgrind"
 #PERF_PACKAGES="auditd kcachegrind"
 DUMB_PACKAGES="ddate lolcat cmatrix cowsay toilet espeak"
 APT_PACKAGES="$SHARED_PACKAGES apt-file linux-tools-common linux-tools-$(uname -r) linux-cloud-tools-$(uname -r) build-essential tweak apcalc htop auditd mercurial-keyring $DUMB_PACKAGES"
