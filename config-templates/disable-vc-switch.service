@@ -1,0 +1,10 @@
+[Unit]
+Description=Disable Virtual Console Switch
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/disable-vc-switch.sh
+
+[Install]
+WantedBy=multi-user.target
+
