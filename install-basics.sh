@@ -29,22 +29,6 @@ else
     exit 1
 fi
 
-#sudo $PKGMAN install -y \
-#    zsh \
-#	apt-file \
-#	mercurial python-pip \
-#	git linux-tools-common \
-#	wget curl ssh \
-#	gdb binutils auditd \
-#    valgrind kcachegrind \
-#    linux-tools-$(uname -r) linux-cloud-tools-$(uname -r) \
-#	gcc g++ make cmake build-essential \
-#	nano tweak apcalc \
-#	zip p7zip-full \
-#	tmux screen \
-#	ddate lolcat cmatrix cowsay toilet espeak \
-#    htop
-
 if [ ! -d ~/.tmux/plugins/tpm ]; then
     echo "Getting tmux plugins..."
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
