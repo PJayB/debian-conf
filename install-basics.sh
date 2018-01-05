@@ -1,6 +1,4 @@
 #!/bin/sh
-set -e
-
 PKGMAN=$(./package-manager.sh)
 if [ "$PKGMAN" = "" ]; then
     echo "Unknown package manager."
