@@ -1,3 +1,1 @@
-Scripts to lower iteration time of fresh Debian-based installs.
-
-The get-* scripts are fairly solid. No guarantees for the rest.
+Scripts to lower iteration time of fresh Linux installs.
