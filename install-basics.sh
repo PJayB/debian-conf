@@ -7,13 +7,15 @@ fi
 
 # CentOS has a frankly ANCIENT mercurial installation
 if [ "$PKGMAN" = "yum" ]; then
-sudo echo "[mercurial.selenic.com]
-name=mercurial.selenic.com
-baseurl=https://www.mercurial-scm.org/release/centos$releasever
+sudo sh -c 'cat > /etc/yum.repos.d/mercurial.repo' <<- EOM
+[mercurial]
+name=Mercurial packages for CentOS7
+# baseurl
+baseurl=https://www.mercurial-scm.org/release/centos\$releasever
+skip_if_unavailable=True 
 enabled=1
-# Temporary until we get a serious signing scheme in place,
-# check https://www.mercurial-scm.org/wiki/Download again
-gpgcheck=0" > /etc/yum.repos.d/mercurial.selenic.com.repo
+gpgcheck=0
+EOM
 fi
 
 
