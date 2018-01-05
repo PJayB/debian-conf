@@ -1,6 +1,2 @@
 #basics-setup
-alias ll="ls -al"
-alias unityvpn="~/openvpn/connect.sh"
-alias grepsrc="grep --color=auto -rIHn --include=\*.{h,cpp,cs,bindings}"
-alias neo="cmatrix"
 
