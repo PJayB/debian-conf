@@ -26,3 +26,5 @@ else
     echo "$PKGMAN-based distros aren't supported."
     exit 1
 fi
+echo "Done."
+
