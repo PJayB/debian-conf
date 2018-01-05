@@ -46,9 +46,9 @@ cp -nv config-templates/tmux.conf ~/.tmux.conf
 sudo cp -v config-templates/lynx.cfg /etc/lynx.cfg
 
 if [ ! -d ~/.oh-my-zsh ]; then
-    echo "Getting Oh-My-Zsh... you can install this by running ./install-omz.sh"
-    curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh > install-omz.sh
-    chmod +x ./install-omz.sh
+    echo "Getting Oh-My-Zsh..."
+    # need to de-fang the default config part of the script
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sed -e 's:TEST_CURRENT_SHELL=.*$:exit 0:g')"
 fi
 
 touch ~/.bashrc

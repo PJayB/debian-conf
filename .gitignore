@@ -1,6 +1,4 @@
 *.deb
 *.zip
 *.tar.gz
-
 *.swp
-install-omz.sh
