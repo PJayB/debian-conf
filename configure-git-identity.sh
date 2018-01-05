@@ -37,6 +37,8 @@ if ! grep -Eq "$BITBUCKET_DOMAIN" ~/.ssh/config; then
 " >> ~/.ssh/config
 fi
 
+chmod 600 ~/.ssh/config
+
 echo "Successfully configured identities for $GITHUB_DOMAIN and $BITBUCKET_DOMAIN
 Here's your public key:
 ------------------------------------------------"
