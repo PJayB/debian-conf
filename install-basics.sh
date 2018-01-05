@@ -8,7 +8,7 @@ fi
 SHARED_PACKAGES="zsh git wget curl tmux screen mercurial python-pip gdb binutils gcc g++ make cmake nano zip valgrind"
 #PERF_PACKAGES="auditd kcachegrind"
 DUMB_PACKAGES="ddate lolcat cmatrix cowsay toilet espeak"
-APT_PACKAGES="$SHARED_PACKAGES apt-file linux-tools-common linux-tools-$(uname -r) linux-cloud-tools-$(uname -r) build-essential tweak apcalc htop $DUMB_PACKAGES"
+APT_PACKAGES="$SHARED_PACKAGES apt-file linux-tools-common linux-tools-$(uname -r) linux-cloud-tools-$(uname -r) build-essential tweak apcalc htop auditd mercurial-keyring $DUMB_PACKAGES"
 RPM_PACKAGES="p7zip-plugins perf"
 YUM_PACKAGES="$SHARED_PACKAGES $RPM_PACKAGES p7zip-full epel-release"
 DNF_PACKAGES="$SHARED_PACKAGES $RPM_PACKAGES p7zip"
@@ -26,5 +26,9 @@ else
     echo "$PKGMAN-based distros aren't supported."
     exit 1
 fi
+
+sudo pip install --upgrade pip
+sudo pip install mercurial_keyring
+
 echo "Done."
 
