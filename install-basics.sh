@@ -76,9 +76,13 @@ if [ ! -f ~/.ssh/config ]; then
     echo "Don't forget to set up your ssh keys!"
 fi
 
+sudo chsh -s /bin/zsh $USER
+echo "Default shell changed to ZSH. You might want to log out and in again."
+
 if [ "$SHELL" = "/bin/bash" ]; then
     . ~/.bashrc
 elif [ "$SHELL" = "/bin/zsh" ]; then
     . ~/.zshrc
 fi
 
+#exec /bin/zsh
