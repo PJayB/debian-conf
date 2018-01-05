@@ -15,9 +15,8 @@ RPM_PACKAGES="p7zip-plugins perf"
 YUM_PACKAGES="$SHARED_PACKAGES $RPM_PACKAGES p7zip-full epel-release"
 DNF_PACKAGES="$SHARED_PACKAGES $RPM_PACKAGES p7zip"
 
-sudo $PKGMAN update
-
 if [ "$PKGMAN" = "apt-get" ]; then
+    sudo $PKGMAN update
     sudo $PKGMAN install -y $APT_PACKAGES
 elif [ "$PKGMAN" = "yum" ]; then
     sudo $PKGMAN install -y $YUM_PACKAGES
