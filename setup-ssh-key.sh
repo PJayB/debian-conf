@@ -1,13 +1,40 @@
 #!/bin/bash
 
 if [ "$1" == "" ]; then
-	echo "Please specify a remote target (e.g. user@domain.com)"
+	echo "Please specify a tag for this key, e.g. \"work\" or \"personal\""
+	exit 1
+fi
+if [ "$2" == "" ]; then
+	echo "Please specify an email address for this key"
 	exit 1
 fi
 
-if [ ! -f ~/.ssh/id_rsa.pub ]; then
-	ssh-keygen -t rsa
-fi
-cat ~/.ssh/id_rsa.pub | ssh $1 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+KEY=~/.ssh/id_rsa_$1.pub
+GITHUB_DOMAIN=$1.github.com
+BITBUCKET_DOMAIN=$1.bitbucket.org
 
+if [ ! -f $KEY ]; then
+	ssh-keygen -t rsa -C $2 -f $KEY
+    ssh-add $KEY
+fi
+
+touch ~/.ssh/config
+
+if ! grep -Eq "$GITHUB_DOMAIN" ~/.ssh/config; then
+    echo "Host $GITHUB_DOMAIN
+    HostName github.com
+    User git
+    IdentityFile $KEY
+" >> ~/.ssh/config
+fi
+
+if ! grep -Eq "$BITBUCKET_DOMAIN" ~/.ssh/config; then
+    echo "Host $BITBUCKET_DOMAIN
+    HostName bitbucket.org
+    User git
+    IdentityFile $KEY
+" >> ~/.ssh/config
+fi
+
+echo "Successfully configured identities for $GITHUB_DOMAIN and $BITBUCKET_DOMAIN"
 
