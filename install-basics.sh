@@ -2,6 +2,7 @@
 set -e
 
 sudo apt-get install -y \
+    zsh \
 	apt-file \
 	mercurial python-pip \
 	git linux-tools-common \
@@ -16,7 +17,10 @@ sudo apt-get install -y \
 	ddate lolcat cmatrix cowsay toilet espeak \
     htop
 
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+    echo "Getting tmux plugins..."
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 
 if [ ! -d ~/.ssh ]; then
     mkdir ~/.ssh
@@ -31,11 +35,30 @@ cp -nv config-templates/tmux.conf ~/.tmux.conf
 
 sudo cp -v config-templates/lynx.cfg /etc/lynx.cfg
 
-if ! grep -E 'basics-setup' ~/.bashrc; then
+if [ ! -d ~/.oh-my-zsh ]; then
+    echo "Getting Oh-My-Zsh..."
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+fi
+
+touch ~/.bashrc
+touch ~/.zshrc
+
+if ! grep -Eq 'basics-setup' ~/.bashrc; then
     echo "Configuring bashrc"
     cat config-templates/bashrc >> ~/.bashrc
 else
     echo "bashrc already configured"
 fi
+if ! grep -Eq 'basics-setup' ~/.zshrc; then
+    echo "Configuring zshrc"
+    cat config-templates/zshrc >> ~/.zshrc
+else
+    echo "zshrc already configured"
+fi
 
-. ~/.bashrc
+if [ "$SHELL" = "/bin/bash" ]; then
+    . ~/.bashrc
+elif [ "$SHELL" = "/bin/zsh" ]; then
+    . ~/.zshrc
+fi
+
