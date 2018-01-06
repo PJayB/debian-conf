@@ -5,6 +5,7 @@ osInfo[/etc/arch-release]=pacman
 osInfo[/etc/gentoo-release]=emerge
 osInfo[/etc/SuSE-release]=zypp
 osInfo[/etc/debian_version]=apt-get
+osInfo[/etc/fedora-release]=dnf
 
 for f in ${!osInfo[@]}
 do
