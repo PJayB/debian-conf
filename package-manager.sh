@@ -7,10 +7,12 @@ osInfo[/etc/SuSE-release]=zypp
 osInfo[/etc/debian_version]=apt-get
 osInfo[/etc/fedora-release]=dnf
 
+packageMgr=
 for f in ${!osInfo[@]}
 do
     if [[ -f $f ]];then
-        echo ${osInfo[$f]}
+        packageMgr=${osInfo[$f]}
     fi
 done
+echo $packageMgr
 
