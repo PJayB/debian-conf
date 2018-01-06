@@ -48,7 +48,7 @@ if [ ! -f ~/.ssh/config ]; then
     echo "Don't forget to set up your ssh keys!"
 fi
 
-if [ which zsh && "$USER" != "vagrant" ]; then
+if which zsh && [ "$USER" != "vagrant" ]; then
     sudo chsh -s /bin/zsh $USER
     echo "Default shell changed to ZSH. You might want to log out and in again."
 else
