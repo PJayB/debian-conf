@@ -1,4 +1,5 @@
 #basics-setup
 bindkey -v
+prompt adam2
 [[ $TERM != "screen" && $TERM != "xterm-256color" ]] && exec tmux
 
