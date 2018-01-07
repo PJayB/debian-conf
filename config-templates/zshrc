@@ -1,5 +1,12 @@
 #basics-setup
 bindkey -v
-prompt adam2
-[[ $TERM != "screen" && $TERM != "xterm-256color" ]] && exec tmux
 
+# adam2 <hyphen color> <current dir> <user@host> <user input>
+if [[ $TERM != "screen" && $TERM != "xterm-256color" ]]; then
+    exec tmux
+elif [[ $TERM == "xterm-256color" ]]; then
+    # 256-color chart: https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_25$
+    prompt adam2 236 121 025 white
+else
+    prompt adam2 black green cyan white
+fi
