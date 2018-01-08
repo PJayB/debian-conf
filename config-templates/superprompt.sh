@@ -16,7 +16,7 @@ if [ "$color_prompt" = yes ]; then
     WHITE_BOLD="\[\033[1;37m\]"
     RESET="\[\033[0m\]"
 
-    PATHSTRING="\$(pwd | sed \"s:$HOME:~:g\" | sed \"s#\(/[^/]\{1,\}/[^/]\{1,\}/[^/]\{1,\}/\).*\(/[^/]\{1,\}/[^/]\{1,\}\)/\{0,1\}#\1...\2#g\")"
+    PATHSTRING="\$(pwd | sed \"s:$HOME:~:g\" | sed \"s#\(/[^/]\{1,\}/[^/]\{1,\}/[^/]\{1,\}/\).*\(/[^/]\{1,\}/[^/]\{1,\}\)/\{0,1\}#\1…\2#g\")"
 
     BASEPART="${debian_chroot:+($debian_chroot)}"
     USERPART="${BLUEISH_NORMAL}\u@${BLUEISH_BOLD}\h"
