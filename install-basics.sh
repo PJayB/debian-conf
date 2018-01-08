@@ -12,14 +12,14 @@ sudo sh -c 'cat > /etc/yum.repos.d/mercurial.repo' <<- EOM
 name=Mercurial packages for CentOS7
 # baseurl
 baseurl=https://www.mercurial-scm.org/release/centos\$releasever
-skip_if_unavailable=True 
+skip_if_unavailable=True
 enabled=1
 gpgcheck=0
 EOM
 fi
 
 
-SHARED_PACKAGES="zsh git wget curl tmux screen python-pip mercurial gdb binutils gcc g++ make cmake nano zip valgrind openvpn"
+SHARED_PACKAGES="git wget curl tmux screen python-pip mercurial gdb binutils gcc g++ make cmake nano zip valgrind openvpn"
 #PERF_PACKAGES="auditd kcachegrind"
 DUMB_PACKAGES="ddate lolcat cmatrix cowsay toilet espeak"
 APT_PACKAGES="$SHARED_PACKAGES apt-file linux-tools-common linux-tools-$(uname -r) linux-cloud-tools-$(uname -r) build-essential tweak apcalc htop auditd mercurial-keyring resolvconf $DUMB_PACKAGES"

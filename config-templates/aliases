@@ -3,5 +3,5 @@ alias unityvpn="~/openvpn/connect.sh"
 alias grepsrc="grep --color=auto -rIHn --include=\*.{h,cpp,cs,bindings}"
 alias neo="cmatrix"
 alias debug="gdb -ex=r --args"
-alias ll="ls -al"
+alias ll="ls -al --color=auto"
 

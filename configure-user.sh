@@ -17,12 +17,6 @@ cp -nv config-templates/tmux.conf ~/.tmux.conf
 
 sudo cp -v config-templates/lynx.cfg /etc/lynx.cfg
 
-#if [ ! -d ~/.oh-my-zsh ]; then
-#    echo "Getting Oh-My-Zsh..."
-#    # need to de-fang the default config part of the script
-#    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sed -e 's:TEST_CURRENT_SHELL=.*$:exit 0:g')"
-#fi
-
 touch ~/.bashrc
 touch ~/.zshrc
 
@@ -55,12 +49,6 @@ if [ ! -f ~/.ssh/config ]; then
     echo "Don't forget to set up your ssh keys!"
 fi
 
-#if which zsh && [ "$USER" != "vagrant" ]; then
-#    sudo chsh -s /bin/zsh $USER
-#    echo "Default shell changed to ZSH. You might want to log out and in again."
-#else
-#    echo "Zsh not installed."
-#fi
 echo "If you want to change default shells, use \"chsh -s /path/to/shell\""
 cat /etc/shells
 

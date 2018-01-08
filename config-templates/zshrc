@@ -1,5 +1,4 @@
 #basics-setup
-bindkey -v
 
 # adam2 <hyphen color> <current dir> <user@host> <user input>
 if [[ $TERM != "screen" && $TERM != "xterm-256color" ]]; then
