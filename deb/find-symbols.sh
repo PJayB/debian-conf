@@ -3,7 +3,6 @@ SYMBOLPACKAGES=
 MISSINGPACKAGES=
 LIBSTOFIND=$@
 OUTPUT=/dev/stderr
-INSTALLEDPACKAGES=$(apt-get list --installed)
 if [[ "$LIBSTOFIND" == "" ]]; then
 	echo "Usage: $0 <library or binary name>" >&2
 	exit 1
