@@ -4,7 +4,7 @@
 if [[ $TERM != "screen" && $TERM != "xterm-256color" ]]; then
     exec tmux
 elif [[ $TERM == "xterm-256color" ]]; then
-    # 256-color chart: https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_25$
+    # 256-color chart: https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
     prompt adam2 236 121 025 white
 else
     prompt adam2 black green cyan white
