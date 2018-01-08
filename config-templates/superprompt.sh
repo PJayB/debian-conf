@@ -26,7 +26,11 @@ if [ "$color_prompt" = yes ]; then
     PROMPTPART="${WHITE_BOLD}›"
     ENDPART=" "
 
-    PS1="${BASEPART}${USERPART}${SEPARATOR1PART}${PATHPART}${SEPARATOR2PART}${PROMPTPART}${ENDPART}"
+    # https://gist.github.com/mkottman/1936195
+    PS_LINE=$(printf -- '-%.0s' {1..200})
+    PS_FILL="${RESET}\[\033[s\]\${PS_LINE:0:$COLUMNS}\[\033[u\]"
+
+    PS1="\${BASEPART}${PS_FILL}${USERPART}${SEPARATOR1PART}${PATHPART}${SEPARATOR2PART}\n${PROMPTPART}${ENDPART}"
     PS2="${PROMPTPART}${RESET}"
 
     trap '[[ -t 1 ]] && tput sgr0' DEBUG
