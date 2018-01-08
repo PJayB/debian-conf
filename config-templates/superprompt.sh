@@ -12,6 +12,7 @@ if [ "$color_prompt" = yes ]; then
     BLUEISH_BOLD="\[\033[01;38;5;39m\]"
     GREENISH_NORMAL="\[\033[38;5;121m\]"
     GREENISH_BOLD="\[\033[01;38;5;121m\]"
+    LINE_COLOR="\[\033[38;5;238m\]"
     WHITE_NORMAL="\[\033[37m\]"
     WHITE_BOLD="\[\033[1;37m\]"
     RESET="\[\033[0m\]"
@@ -27,8 +28,8 @@ if [ "$color_prompt" = yes ]; then
     ENDPART=" "
 
     # https://gist.github.com/mkottman/1936195
-    PS_LINE=$(printf -- '-%.0s' {1..200})
-    PS_FILL="${RESET}\[\033[s\]\${PS_LINE:0:$COLUMNS}\[\033[u\]"
+    PS_LINE=$(printf -- '—%.0s' {1..200})
+    PS_FILL="${LINE_COLOR}\[\033[s\]\${PS_LINE:0:$COLUMNS}\[\033[u\]"
 
     PS1="\${BASEPART}${PS_FILL}${USERPART}${SEPARATOR1PART}${PATHPART}${SEPARATOR2PART}\n${PROMPTPART}${ENDPART}"
     PS2="${PROMPTPART}${RESET}"
