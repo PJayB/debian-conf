@@ -16,18 +16,20 @@ if [ "$color_prompt" = yes ]; then
     WHITE_BOLD="\[\033[1;37m\]"
     RESET="\[\033[0m\]"
 
-    #PATHSTRING=$(pwd | sed "s:$HOME:~:g" | sed "s#\(/[^/]\{1,\}/[^/]\{1,\}/[^/]\{1,\}/\).*\(/[^/]\{1,\}/[^/]\{1,\}\)/\{0,1\}#\1...\2#g")
+    PATHSTRING="\$(pwd | sed \"s:$HOME:~:g\" | sed \"s#\(/[^/]\{1,\}/[^/]\{1,\}/[^/]\{1,\}/\).*\(/[^/]\{1,\}/[^/]\{1,\}\)/\{0,1\}#\1...\2#g\")"
 
     BASEPART="${debian_chroot:+($debian_chroot)}"
     USERPART="${BLUEISH_NORMAL}\u@${BLUEISH_BOLD}\h"
     SEPARATOR1PART="${RESET}:"
-    PATHPART="${GREENISH_BOLD}\w"
+    PATHPART="${GREENISH_BOLD}${PATHSTRING}"
     SEPARATOR2PART=" "
     PROMPTPART="${WHITE_BOLD}›"
-    ENDPART="${RESET} "
+    ENDPART=" "
 
     PS1="${BASEPART}${USERPART}${SEPARATOR1PART}${PATHPART}${SEPARATOR2PART}${PROMPTPART}${ENDPART}"
-    PS2="${GREENISH_BOLD} >"
+    PS2="${PROMPTPART}${RESET}"
+
+    trap '[[ -t 1 ]] && tput sgr0' DEBUG
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w › '
 fi
