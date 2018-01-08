@@ -8,8 +8,8 @@ if [ "$color_prompt" = yes ]; then
     # https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[38;5;39m\]\u@\[\033[01;38;5;39m\]\h\[\033[00m\]:\[\033[01;38;5;121m\]\w \[\033[1;37m\]›  \[\033[0m\]'
-    BLUEISH_NORMAL="\[\033[0;38;5;39m\]"
-    BLUEISH_BOLD="\[\033[01;38;5;39m\]"
+    BLUEISH_NORMAL="\[\033[0;38;5;32m\]"
+    BLUEISH_BOLD="\[\033[01;38;5;32m\]"
     GREENISH_NORMAL="\[\033[0;38;5;121m\]"
     GREENISH_BOLD="\[\033[01;38;5;121m\]"
     ORANGE_NORMAL="\[\033[00;38;5;202m\]"
