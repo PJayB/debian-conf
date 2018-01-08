@@ -39,7 +39,7 @@ if [ "$color_prompt" = yes ]; then
     SOURCECONTROLPART="${GITPART}${HGPART}"
     PROMPTPART="${WHITE_BOLD}›"
     EXTRAPROMPTPART="${WHITE_BOLD}»"
-    ENDPART=" "
+    ENDPART="${WHITE_NORMAL} "
 
     # https://gist.github.com/mkottman/1936195
     PS_LINE=$(printf -- '—%.0s' {1..200})
