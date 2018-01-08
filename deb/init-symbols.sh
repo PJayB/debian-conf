@@ -1,6 +1,7 @@
 #!/bin/bash
 #DISTROS="precise quantal raring saucy trusty utopic vivid wily xenial yakkety zesty artful $(lsb_release -cs)"
-DISTROS="$(lsb_release -cs) trusty vivid xenial yakkety zesty artful"
+#DISTROS="$(lsb_release -cs) trusty vivid xenial yakkety zesty artful"
+DISTROS="$(lsb_release -cs)"
 for distro in $DISTROS; do
 	echo "# Symbols
 deb http://ddebs.ubuntu.com $distro main restricted universe multiverse
