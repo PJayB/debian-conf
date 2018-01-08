@@ -25,6 +25,7 @@ if [ "$color_prompt" = yes ]; then
     PATHPART="${GREENISH_BOLD}${PATHSTRING}"
     SEPARATOR2PART=" "
     PROMPTPART="${WHITE_BOLD}›"
+    EXTRAPROMPTPART="${WHITE_BOLD}»"
     ENDPART=" "
 
     # https://gist.github.com/mkottman/1936195
@@ -32,7 +33,7 @@ if [ "$color_prompt" = yes ]; then
     PS_FILL="${LINE_COLOR}\[\033[s\]\${PS_LINE:0:$COLUMNS}\[\033[u\]"
 
     PS1="\${BASEPART}${PS_FILL}${USERPART}${SEPARATOR1PART}${PATHPART}${SEPARATOR2PART}\n${PROMPTPART}${ENDPART}"
-    PS2="${PROMPTPART}${RESET}"
+    PS2="${EXTRAPROMPTPART}${ENDPART}"
 
     trap '[[ -t 1 ]] && tput sgr0' DEBUG
 else
