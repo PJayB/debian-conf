@@ -31,7 +31,7 @@ if [ "$color_prompt" = yes ]; then
     HGPART="\$(hg branch 2> /dev/null | sed 's/^\(.*\)$/ ${LINE_COLOR}(${YELLOW_BOLD}hg ${RED_NORMAL}\1${LINE_COLOR})/g')"
 
     BASEPART="${debian_chroot:+($debian_chroot)}"
-    PREFIXPART="${LINE_COLOR}——"
+    PREFIXPART="${LINE_COLOR}"
     USERPART="${BLUEISH_NORMAL}\u@${BLUEISH_BOLD}\h"
     SEPARATOR1PART="${RESET}:"
     PATHPART="${GREENISH_NORMAL}${PATHSTRING}"
@@ -43,9 +43,10 @@ if [ "$color_prompt" = yes ]; then
 
     # https://gist.github.com/mkottman/1936195
     PS_LINE=$(printf -- '—%.0s' {1..200})
-    PS_FILL="${LINE_COLOR}${SAVECUR}${PS_LINE:0:$COLUMNS}${RESTORECUR}"
+    PS_FILL=
+    #"${LINE_COLOR}${SAVECUR}\${PS_LINE:0:$COLUMNS}${RESTORECUR}"
 
-    PS1="\${BASEPART}${PS_FILL}${PREFIXPART}${USERPART}${SEPARATOR1PART}${PATHPART}${SEPARATOR2PART}${SOURCECONTROLPART}\n${PROMPTPART}${ENDPART}"
+    PS1="\${BASEPART}${PS_FILL}${PREFIXPART}${USERPART}${SEPARATOR1PART}${PATHPART}${SEPARATOR2PART}${SOURCECONTROLPART} ${PROMPTPART}${ENDPART}"
     PS2="${EXTRAPROMPTPART}${ENDPART}"
 
     trap '[[ -t 1 ]] && tput sgr0' DEBUG
