@@ -4,4 +4,5 @@ alias grepsrc="grep --color=auto -rIHn --include=\*.{h,cpp,cs,bindings,pl,pm,c} 
 alias neo="cmatrix"
 alias debug="gdb -ex=r --args"
 alias ll="ls -al --color=auto"
+alias xclip="xclip -selection c"
 
