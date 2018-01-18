@@ -1,5 +1,11 @@
 # basics-setup
-[[ $TERM != "screen" && $TERM != "xterm-256color" ]] && exec tmux
+if [ $TERM != "screen" ] && [ $TERM != "xterm-256color" ]; then
+    if tmux has-session; then
+        exec tmux attach-session
+    else
+        exec tmux
+    fi
+fi
 
 # set a fancy prompt                                            
 case "$TERM" in
