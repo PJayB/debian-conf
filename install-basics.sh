@@ -33,7 +33,7 @@ if [ "$PKGMAN" = "apt-get" ]; then
 elif [ "$PKGMAN" = "yum" ]; then
     sudo $PKGMAN install -y $YUM_PACKAGES
     sudo $PKGMAN groupinstall -y 'Development Tools'
-elif ["$PKGMAN" = "dnf" ]; then
+elif [ "$PKGMAN" = "dnf" ]; then
     sudo $PKGMAN install -y $DNF_PACKAGES
     sudo $PKGMAN groupinstall -y 'Development Tools'
 else
