@@ -19,7 +19,7 @@ EOM
 fi
 
 
-SHARED_PACKAGES="git wget curl tmux screen python-pip mercurial gdb binutils gcc g++ make cmake nano zip valgrind openvpn"
+SHARED_PACKAGES="git wget curl tmux screen python-pip mercurial gdb binutils gcc g++ make cmake nano zip valgrind openvpn xclip"
 #PERF_PACKAGES="auditd kcachegrind"
 DUMB_PACKAGES="ddate lolcat cmatrix cowsay toilet espeak"
 APT_PACKAGES="$SHARED_PACKAGES apt-file linux-tools-common linux-tools-$(uname -r) linux-cloud-tools-$(uname -r) build-essential tweak apcalc htop auditd mercurial-keyring resolvconf $DUMB_PACKAGES"
