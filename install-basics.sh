@@ -19,7 +19,7 @@ EOM
 fi
 
 
-SHARED_PACKAGES="git wget curl tmux screen python-pip mercurial gdb binutils gcc g++ make cmake nano zip valgrind openvpn"
+SHARED_PACKAGES="git wget curl tmux screen python-pip mercurial gdb binutils gcc g++ make cmake nano zip valgrind openvpn xclip"
 #PERF_PACKAGES="auditd kcachegrind"
 DUMB_PACKAGES="ddate lolcat cmatrix cowsay toilet espeak"
 APT_PACKAGES="$SHARED_PACKAGES apt-file linux-tools-common linux-tools-$(uname -r) linux-cloud-tools-$(uname -r) build-essential tweak apcalc htop auditd mercurial-keyring resolvconf $DUMB_PACKAGES"
@@ -33,7 +33,7 @@ if [ "$PKGMAN" = "apt-get" ]; then
 elif [ "$PKGMAN" = "yum" ]; then
     sudo $PKGMAN install -y $YUM_PACKAGES
     sudo $PKGMAN groupinstall -y 'Development Tools'
-elif ["$PKGMAN" = "dnf" ]; then
+elif [ "$PKGMAN" = "dnf" ]; then
     sudo $PKGMAN install -y $DNF_PACKAGES
     sudo $PKGMAN groupinstall -y 'Development Tools'
 else
