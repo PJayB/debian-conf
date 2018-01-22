@@ -3,6 +3,7 @@
 # set a fancy prompt
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
+    screen) color_prompt=yes;;
 esac
 if [ "$color_prompt" = yes ]; then
     # https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
