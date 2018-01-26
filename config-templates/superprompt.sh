@@ -28,8 +28,8 @@ if [ "$color_prompt" = yes ]; then
 
     PATHSTRING="\$(pwd | sed \"s:$HOME:~:g\" | sed \"s#\(/[^/]\{1,\}/[^/]\{1,\}/[^/]\{1,\}/\).*\(/[^/]\{1,\}/[^/]\{1,\}\)/\{0,1\}#\1…\2#g\")"
 
-    GITPART="\$(git branch 2> /dev/null | sed 's/^\* \(.*\)$/ ${LINE_COLOR}(${ORANGE_BOLD}git ${RED_NORMAL}\1${LINE_COLOR})/g')"
-    HGPART="\$(hg branch 2> /dev/null | sed 's/^\(.*\)$/ ${LINE_COLOR}(${YELLOW_BOLD}hg ${RED_NORMAL}\1${LINE_COLOR})/g')"
+    GITPART="\$(git branch 2> /dev/null | sed -n 's/^\* \(.*\)$/ ${LINE_COLOR}(${ORANGE_BOLD}git ${RED_NORMAL}\1${LINE_COLOR})/p')"
+    HGPART="\$(hg branch 2> /dev/null | sed -n 's/^\(.*\)$/ ${LINE_COLOR}(${YELLOW_BOLD}hg ${RED_NORMAL}\1${LINE_COLOR})/p')"
 
     BASEPART="${debian_chroot:+($debian_chroot)}"
     PREFIXPART="${LINE_COLOR}"
