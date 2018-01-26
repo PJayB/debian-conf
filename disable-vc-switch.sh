@@ -16,3 +16,5 @@ sudo chown root:root "$SERVICE_DST"
 
 sudo systemctl enable disable-vc-switch
 
+sudo chmod u+s /usr/bin/dumpkeys
+
