@@ -54,7 +54,13 @@ pip install mercurial_keyring
 
 # Set up WSL-specific stuff
 if uname -r | grep "Microsoft"; then
-	sudo service ssh start
+    sudo apt-get purge -y openssh-server
+    sudo apt-get install -y openssh-server
+    echo "PermitRootLogin no
+AllowUsers $USER
+PasswordAuthentication yes
+UsePrivilegeSeparation no" | sudo tee -a /etc/ssh/sshd_config > /dev/null
+    sudo service ssh --full-restart
 fi
 
 echo "Done."
