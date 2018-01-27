@@ -1,4 +1,6 @@
 #!/bin/sh
+set -e
+
 PKGMAN=$(./package-manager.sh)
 if [ "$PKGMAN" = "" ]; then
     echo "Unknown package manager."
@@ -18,11 +20,17 @@ gpgcheck=0
 EOM
 fi
 
+# These packages don't exist on WSL
+LINUX_TOOLS_PACKAGES=
+if ! uname -r | grep "Microsoft"; then
+	LINUX_TOOLS_PACKAGES="linux-tools-$(uname -r) linux-cloud-tools-$(uname -r)"
+fi
+
 
 SHARED_PACKAGES="git wget curl tmux screen python-pip mercurial gdb binutils gcc g++ make cmake nano zip valgrind openvpn xclip"
 #PERF_PACKAGES="auditd kcachegrind"
 DUMB_PACKAGES="ddate lolcat cmatrix cowsay toilet espeak"
-APT_PACKAGES="$SHARED_PACKAGES apt-file linux-tools-common linux-tools-$(uname -r) linux-cloud-tools-$(uname -r) build-essential tweak apcalc htop auditd mercurial-keyring resolvconf $DUMB_PACKAGES"
+APT_PACKAGES="$SHARED_PACKAGES apt-file linux-tools-common $LINUX_TOOLS_PACKAGES build-essential tweak apcalc htop auditd mercurial-keyring resolvconf $DUMB_PACKAGES"
 RPM_PACKAGES="p7zip-plugins perf"
 YUM_PACKAGES="$SHARED_PACKAGES $RPM_PACKAGES p7zip-full epel-release"
 DNF_PACKAGES="$SHARED_PACKAGES $RPM_PACKAGES p7zip"
