@@ -27,7 +27,7 @@ if ! uname -r | grep "Microsoft"; then
 fi
 
 
-SHARED_PACKAGES="git wget curl tmux screen python-pip mercurial gdb binutils gcc g++ make cmake nano zip valgrind openvpn xclip"
+SHARED_PACKAGES="git wget curl tmux screen python-pip mercurial gdb binutils gcc g++ make cmake nano zip valgrind openvpn xclip openssh-server"
 #PERF_PACKAGES="auditd kcachegrind"
 DUMB_PACKAGES="ddate lolcat cmatrix cowsay toilet espeak"
 APT_PACKAGES="$SHARED_PACKAGES apt-file linux-tools-common $LINUX_TOOLS_PACKAGES build-essential tweak apcalc htop auditd mercurial-keyring resolvconf $DUMB_PACKAGES"
@@ -49,8 +49,13 @@ else
     exit 1
 fi
 
-sudo pip install --upgrade pip
-sudo pip install mercurial_keyring
+pip install --upgrade pip
+pip install mercurial_keyring
+
+# Set up WSL-specific stuff
+if uname -r | grep "Microsoft"; then
+	sudo service ssh start
+fi
 
 echo "Done."
 
