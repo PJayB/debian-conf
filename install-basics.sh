@@ -49,6 +49,12 @@ else
     exit 1
 fi
 
+# Set up Fedora SSH server
+if [ "$PKGMAN" = "dnf" ] || [ "$PKGMAN" = "yum" ]; then
+    sudo systemctl enable sshd.service
+    sudo systemctl start sshd.service
+fi
+
 pip install --upgrade pip
 pip install --user mercurial_keyring
 
