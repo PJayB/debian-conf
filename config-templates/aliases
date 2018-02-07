@@ -5,4 +5,5 @@ alias neo="cmatrix"
 alias debug="gdb -ex=r --args"
 alias ll="ls -al --color=auto"
 alias xclip="xclip -selection c"
+alias gdb="gdb -tui"
 
