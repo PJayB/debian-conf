@@ -30,7 +30,7 @@ fi
 SHARED_PACKAGES="git wget curl tmux screen python-pip mercurial gdb binutils gcc make cmake nano zip valgrind openvpn xclip openssh-server"
 #PERF_PACKAGES="auditd kcachegrind"
 DUMB_PACKAGES="ddate lolcat cmatrix cowsay toilet espeak"
-APT_PACKAGES="$SHARED_PACKAGES g++ apt-file linux-tools-common $LINUX_TOOLS_PACKAGES build-essential tweak apcalc htop auditd mercurial-keyring resolvconf $DUMB_PACKAGES"
+APT_PACKAGES="$SHARED_PACKAGES g++ apt-file linux-tools-common $LINUX_TOOLS_PACKAGES build-essential tweak apcalc htop auditd mercurial-keyring resolvconf trash $DUMB_PACKAGES"
 RPM_PACKAGES="p7zip-plugins perf"
 YUM_PACKAGES="$SHARED_PACKAGES $RPM_PACKAGES p7zip-full epel-release"
 DNF_PACKAGES="$SHARED_PACKAGES $RPM_PACKAGES p7zip"

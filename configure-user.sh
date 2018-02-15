@@ -10,10 +10,15 @@ if [ ! -d ~/.ssh ]; then
     mkdir ~/.ssh
 fi
 
+if [ ! -d ~/.config/i3 ]; then
+    mkdir -p ~/.config/i3
+fi
+
 cp -nv config-templates/nanorc ~/.nanorc
 cp -nv config-templates/gitconfig ~/.gitconfig
 cp -nv config-templates/gdbinit ~/.gdbinit
 cp -nv config-templates/tmux.conf ~/.tmux.conf
+cp -nv config-templates/i3-config ~/.config/i3/config
 
 sudo cp -v config-templates/lynx.cfg /etc/lynx.cfg
 
