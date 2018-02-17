@@ -26,24 +26,33 @@ if ! uname -r | grep "Microsoft"; then
 	LINUX_TOOLS_PACKAGES="linux-tools-$(uname -r) linux-cloud-tools-$(uname -r)"
 fi
 
+if [ "$TRY_PACKAGES" != "" ]; then 
+    PACKAGES=$(cat basic-packages | grep -v "#" | sed -E 's/ *\|.*$//g')
+else
+    PACKAGES=$(cat basic-packages | grep $PKGMAN | sed -E 's/ *\|.*$//g')
+fi
 
-SHARED_PACKAGES="git wget curl tmux screen python-pip mercurial gdb binutils gcc make cmake nano zip valgrind openvpn xclip openssh-server"
-#PERF_PACKAGES="auditd kcachegrind"
-DUMB_PACKAGES="ddate lolcat cmatrix cowsay toilet espeak"
-APT_PACKAGES="$SHARED_PACKAGES g++ apt-file linux-tools-common $LINUX_TOOLS_PACKAGES build-essential tweak apcalc htop auditd mercurial-keyring resolvconf trash $DUMB_PACKAGES"
-RPM_PACKAGES="p7zip-plugins perf"
-YUM_PACKAGES="$SHARED_PACKAGES $RPM_PACKAGES p7zip-full epel-release"
-DNF_PACKAGES="$SHARED_PACKAGES $RPM_PACKAGES p7zip"
+#SHARED_PACKAGES="git wget curl tmux screen python-pip mercurial gdb binutils gcc make cmake nano zip valgrind openvpn xclip"
+#APT_RPM_PACKAGES="openssh-server"
+#DUMB_PACKAGES="ddate lolcat cmatrix cowsay toilet espeak"
+#APT_PACKAGES="$SHARED_PACKAGES $APT_RPM_PACKAGES g++ apt-file linux-tools-common $LINUX_TOOLS_PACKAGES build-essential tweak apcalc htop auditd mercurial-keyring resolvconf trash $DUMB_PACKAGES"
+#RPM_PACKAGES="$APT_RPM_PACKAGES p7zip-plugins perf"
+#YUM_PACKAGES="$SHARED_PACKAGES $RPM_PACKAGES p7zip-full epel-release"
+#DNF_PACKAGES="$SHARED_PACKAGES $RPM_PACKAGES p7zip"
+#PACMAN_PACKAGES="$SHARED_PACKAGES openssh"
 
 if [ "$PKGMAN" = "apt-get" ]; then
     sudo $PKGMAN update
-    sudo $PKGMAN install -y $APT_PACKAGES
+    sudo $PKGMAN install -y $PACKAGES $LINUX_TOOLS_PACKAGES
 elif [ "$PKGMAN" = "yum" ]; then
-    sudo $PKGMAN install -y $YUM_PACKAGES
+    sudo $PKGMAN install -y $PACKAGES
     sudo $PKGMAN groupinstall -y 'Development Tools'
 elif [ "$PKGMAN" = "dnf" ]; then
-    sudo $PKGMAN install -y $DNF_PACKAGES
+    sudo $PKGMAN install -y $PACKAGES
     sudo $PKGMAN groupinstall -y 'Development Tools'
+elif [ "$PKGMAN" = "pacman" ]; then
+    sudo $PKGMAN -Syy --noconfirm
+    sudo $PKGMAN -S --noconfirm $PACKAGES
 else
     echo "$PKGMAN-based distros aren't supported."
     exit 1
