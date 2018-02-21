@@ -20,7 +20,9 @@ cp -nv config-templates/gdbinit ~/.gdbinit
 cp -nv config-templates/tmux.conf ~/.tmux.conf
 cp -nv config-templates/i3-config ~/.config/i3/config
 
-sudo cp -v config-templates/lynx.cfg /etc/lynx.cfg
+if [ "$TERM" != "cygwin" ]; then
+    sudo cp -v config-templates/lynx.cfg /etc/lynx.cfg
+fi
 
 touch ~/.bashrc
 touch ~/.zshrc
@@ -54,8 +56,10 @@ if [ ! -f ~/.ssh/config ]; then
     echo "Don't forget to set up your ssh keys!"
 fi
 
-echo "If you want to change default shells, use \"chsh -s /path/to/shell\""
-cat /etc/shells
+if [ "$TERM" != "cygwin" ]; then
+    echo "If you want to change default shells, use \"chsh -s /path/to/shell\""
+    cat /etc/shells
+fi
 
 if [ "$SHELL" = "/bin/bash" ]; then
     . ~/.bashrc
