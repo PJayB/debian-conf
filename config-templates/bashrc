@@ -9,7 +9,7 @@ fi
 
 # set a fancy prompt                                            
 case "$TERM" in
-    cygwin) color_prompt=yes;;
+    cygwin) color_prompt=basic;;
     xterm-color|*-256color) color_prompt=yes;;
     screen) color_prompt=yes;;
 esac
@@ -18,6 +18,8 @@ if [ "$color_prompt" = yes ]; then
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[38;5;39m\]\u@\[\033[01;38;5;39m\]\h\[\033[00m\]:\[\033[01;38;5;121m\]\w \[\033[1;37m\]›  \[\033[0m\]'
     PS1='\[\033[38;5;39m\]\u@\[\033[01;38;5;39m\]\h\[\033[00m\]:\[\033[01;38;5;121m\]\w \[\033[1;37m\]$ \[\033[0m\]'
+elif [ "$color_prompt" = "basic" ]; then
+    PS1='\[\033[32m\]\u@\h\[\033[0m\]:\[\033[36m\]\w \[\033[0m\]$ '
 else
     #PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w > '
     PS1='\u@\h:\w $ '
