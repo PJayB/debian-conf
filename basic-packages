@@ -1,0 +1,44 @@
+# Essentials
+git                 | apt-get yum dnf pacman                          
+wget                | apt-get yum dnf pacman          
+curl                | apt-get yum dnf pacman          
+tmux                | apt-get yum dnf pacman          
+screen              | apt-get yum dnf pacman          
+python-pip          | apt-get yum dnf pacman              
+mercurial           | apt-get yum dnf pacman              
+gdb                 | apt-get yum dnf pacman      
+binutils            | apt-get yum dnf pacman              
+gcc                 | apt-get yum dnf pacman      
+make                | apt-get yum dnf pacman          
+cmake               | apt-get yum dnf pacman          
+nano                | apt-get yum dnf pacman          
+zip                 | apt-get yum dnf pacman      
+valgrind            | apt-get yum dnf pacman              
+openvpn             | apt-get yum dnf pacman          
+xclip               | apt-get yum dnf pacman       
+openssh-server      | apt-get yum dnf
+openssh             | pacman
+g++                 | apt-get
+apt-file            | apt-get
+linux-tools-common  | apt-get
+build-essential     | apt-get
+tweak               | apt-get
+apcalc              | apt-get
+htop                | apt-get
+auditd              | apt-get
+mercurial-keyring   | apt-get
+resolvconf          | apt-get pacman
+trash-cli           | apt-get
+p7zip               | apt-get dnf pacman
+p7zip-full          | apt-get yum
+p7zip-plugins       | yum dnf
+epel-release        | yum
+perf                | yum dnf
+
+# Dumb stuff
+ddate               | apt-get
+lolcat              | apt-get
+cmatrix             | apt-get pacman
+cowsay              | apt-get
+toilet              | apt-get
+espeak              | apt-get
