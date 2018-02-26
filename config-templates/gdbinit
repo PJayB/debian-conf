@@ -4,6 +4,7 @@ set logging file ~/.gdblog
 set print symbol-filename
 set print pretty
 set print address
+set pagination off
 
 handle SIGXCPU SIG33 SIG35 SIG36 SIG37 SIGPWR SIGPIPE nostop noprint
 
