@@ -14,5 +14,5 @@ sudo apt-get install -y code
 if [ ! -d ~/.config/Code/User ]; then
     mkdir -vp ~/.config/Code/User
 fi
-cp -vnr config-templates/vscode/* ~/.config/Code/User/
+cp -vnr ../config-templates/vscode/* ~/.config/Code/User/
 
