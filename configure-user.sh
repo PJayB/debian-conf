@@ -19,8 +19,6 @@ if [ "$TERM" != "cygwin" ]; then
     sudo cp -v config-templates/lynx.cfg /etc/lynx.cfg
 fi
 
-source i3/configure-i3.sh
-
 touch ~/.bashrc
 touch ~/.zshrc
 
