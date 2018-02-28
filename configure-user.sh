@@ -10,23 +10,16 @@ if [ ! -d ~/.ssh ]; then
     mkdir ~/.ssh
 fi
 
-if [ ! -d ~/.config/i3 ]; then
-    mkdir -p ~/.config/i3
-fi
-if [ ! -d ~/.config/i3status ]; then
-    mkdir -p ~/.config/i3status
-fi
-
 cp -nv config-templates/nanorc ~/.nanorc
 cp -nv config-templates/gitconfig ~/.gitconfig
 cp -nv config-templates/gdbinit ~/.gdbinit
 cp -nv config-templates/tmux.conf ~/.tmux.conf
-cp -nv config-templates/i3-config ~/.config/i3/config
-cp -nv config-templates/i3status-config ~/.config/i3status/config
 
 if [ "$TERM" != "cygwin" ]; then
     sudo cp -v config-templates/lynx.cfg /etc/lynx.cfg
 fi
+
+source i3/configure-i3.sh
 
 touch ~/.bashrc
 touch ~/.zshrc
