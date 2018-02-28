@@ -29,8 +29,8 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# start a terminal (PL: set below)
+#bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -158,16 +158,19 @@ bar {
 focus_follows_mouse no
 
 # Set "1" to the index of your card
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5% && pactl set-sink-mute 1 0 && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5% && pactl set-sink-mute 1 0 && killall -SIGUSR1 i3status
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% && pactl set-sink-mute 0 0 && killall -USR1 i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% && pactl set-sink-mute 0 0 && killall -USR1 i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle && pactl set-sink-mute 0 0 && killall -USR1 i3status
 
 # Uncomment for high DPI displays
-exec xrandr --dpi 150
+#exec xrandr --dpi 150
 
 # Initialize sound
 exec start-pulseaudio-x11
 
 # Lock screen
 bindsym $mod+l exec i3lock
+
+# Override the terminal
+bindsym $mod+Return exec gnome-terminal
 
