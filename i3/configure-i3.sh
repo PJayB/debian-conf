@@ -19,3 +19,6 @@ cp -v ./i3-startup.sh $I3/
 echo "TODO: If you want DPI scaling, output your DPI to $I3/custom-dpi"
 
 source pulse-setup.sh
+
+echo "TODO: don't forget to install arandr"
+
