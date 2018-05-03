@@ -3,9 +3,9 @@ PATTERN=$1
 DEVFILE=~/.config/i3/pulse-device
 
 if [ "$PATTERN" != "" ]; then
-    SINKS=$(pactl list sinks short | grep "RUNNING" | grep "$PATTERN" | awk '{print $2}')
+    SINKS=$(pactl list sinks short | grep "$PATTERN" | awk '{print $2}')
 else
-    SINKS=$(pactl list sinks short | grep "RUNNING" | awk '{print $2}')
+    SINKS=$(pactl list sinks short | awk '{print $2}')
 fi
 
 THESINK=

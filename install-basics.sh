@@ -64,8 +64,8 @@ if [ "$PKGMAN" = "dnf" ] || [ "$PKGMAN" = "yum" ]; then
     sudo systemctl start sshd.service
 fi
 
-pip install --upgrade pip
-pip install --user mercurial_keyring
+#pip install --upgrade pip
+#pip install --user mercurial_keyring
 
 # Set up WSL-specific stuff
 if uname -r | grep "Microsoft"; then
