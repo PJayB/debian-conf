@@ -3,7 +3,7 @@ alias unityvpn="~/openvpn/connect.sh"
 alias grepsrc="grep --color=auto -rIHn --include=\*.{h,cpp,cs,bindings,pl,pm,c}  --exclude-dir={.hg,.git}"
 alias neo="cmatrix"
 alias debug="gdb -ex=r --args"
-alias ll="ls -al --color=auto"
+alias ll="ls -al --color=auto -h"
 alias xclip="xclip -selection c"
 alias gdb="gdb -tui"
 
