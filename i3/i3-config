@@ -175,3 +175,9 @@ exec_always --no-startup-id numlockx on
 
 # Run the startup script
 exec ~/.config/i3/i3-startup.sh
+
+# Alt-Tab
+bindsym Mod1+Tab focus right
+bindsym Mod1+Shift+Tab focus left
+
+
