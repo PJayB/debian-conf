@@ -30,7 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal (PL: set below)
-#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -167,6 +167,7 @@ bindsym $mod+l exec i3lock
 
 # Override the terminal
 #bindsym $mod+Return exec gnome-terminal
+exec export $TERMINAL gnome-terminal
 set $TERMINAL gnome-terminal
 
 # Turn on numlock
