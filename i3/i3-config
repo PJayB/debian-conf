@@ -166,7 +166,8 @@ bindsym XF86AudioMute exec --no-startup-id ~/.config/i3/volume-adjust.sh togglem
 bindsym $mod+l exec i3lock
 
 # Override the terminal
-bindsym $mod+Return exec gnome-terminal
+#bindsym $mod+Return exec gnome-terminal
+set $TERMINAL gnome-terminal
 
 # Turn on numlock
 exec_always --no-startup-id numlockx on
