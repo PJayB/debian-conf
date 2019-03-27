@@ -167,7 +167,7 @@ bindsym $mod+l exec i3lock
 
 # Override the terminal
 #bindsym $mod+Return exec gnome-terminal
-exec export $TERMINAL gnome-terminal
+exec export $TERMINAL=gnome-terminal
 set $TERMINAL gnome-terminal
 
 # Turn on numlock
