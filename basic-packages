@@ -29,6 +29,7 @@ auditd              | apt-get
 mercurial-keyring   | apt-get
 resolvconf          | apt-get pacman
 trash-cli           | apt-get
+gnome-tweak-tool    | apt-get
 p7zip               | apt-get dnf pacman
 p7zip-full          | apt-get yum
 p7zip-plugins       | yum dnf
