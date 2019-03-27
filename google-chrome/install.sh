@@ -1,0 +1,1 @@
+../deb/install-chrome.sh
