@@ -1,0 +1,9 @@
+pete@ubuntuvm:~/setup-scripts/themes/cursors$ sudo cp -r Hackneyed-Dark /usr/share/icons
+pete@ubuntuvm:~/setup-scripts/themes/cursors$ sudo chown root:root -R /usr/share/icons/Hackneyed-Dark
+pete@ubuntuvm:~/setup-scripts/themes/cursors$ sudo update-alternatives --install --help
+update-alternatives: --install needs <link> <name> <path> <priority>
+
+Use 'update-alternatives --help' for program usage information.
+pete@ubuntuvm:~/setup-scripts/themes/cursors$ sudo update-alternatives --install /usr/share/icons/default/index.theme x-cursor-theme /usr/share/icons/Hackneyed-Dark/index.theme 20
+pete@ubuntuvm:~$ sudo update-alternatives --config x-cursor-theme
+
