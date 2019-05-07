@@ -1,15 +1,9 @@
 # basics-setup
-if [ $TERM != "screen" ] && [ $TERM != "cygwin" ] && [ $TERM != "xterm-256color" ]; then
-    if tmux has-session; then
-        exec tmux attach-session
-    else
-        exec tmux
-    fi
-fi
 
 # set a fancy prompt                                            
 case "$TERM" in
     cygwin) color_prompt=basic;;
+    xterm) color_prompt=basic;;
     xterm-color|*-256color) color_prompt=yes;;
     screen) color_prompt=yes;;
 esac
