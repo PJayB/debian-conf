@@ -35,6 +35,7 @@ p7zip-full          | apt-get yum
 p7zip-plugins       | yum dnf
 epel-release        | yum
 perf                | yum dnf
+terminator          | apt-get
 
 # Dumb stuff
 ddate               | apt-get
