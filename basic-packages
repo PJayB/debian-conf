@@ -1,5 +1,6 @@
 # Essentials
 git                 | apt-get yum dnf pacman                          
+git-gui             | apt-get yum dnf pacman
 wget                | apt-get yum dnf pacman          
 curl                | apt-get yum dnf pacman          
 tmux                | apt-get yum dnf pacman          
