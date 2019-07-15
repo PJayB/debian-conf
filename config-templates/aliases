@@ -4,4 +4,8 @@ alias neo="cmatrix"
 alias debug="gdb -ex=r --args"
 alias ll="ls -al --color=auto -h"
 alias xclip="xclip -selection c"
+alias du='du -hs'
+alias df='df -h'
+alias rless="less -R"
+
 
