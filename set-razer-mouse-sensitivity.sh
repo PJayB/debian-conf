@@ -1,6 +1,6 @@
 #!/bin/bash
 DEVICES=$(xinput --list --short | grep -e "Razer.*pointer.*$")
-SENS=0.75
+SENS=0.5
 if [ "$1" != "" ]; then
     SENS=$1
 fi
