@@ -1,5 +1,6 @@
 #!/bin/bash
 
+alias tailf="tail -f"
 alias nano="nano -c"
 alias grepsrc="grep --color=auto -rIHn --include=\*.{h,cpp,cs,bindings,pl,pm,c}  --exclude-dir={.hg,.git}"
 alias neo="cmatrix"
