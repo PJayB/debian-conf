@@ -1,11 +1,6 @@
 #!/bin/sh
 set -e
 
-if [ ! -d ~/.tmux/plugins/tpm ]; then
-    echo "Getting tmux plugins..."
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-fi
-
 if [ ! -d ~/.ssh ]; then
     mkdir ~/.ssh
 fi
@@ -20,7 +15,6 @@ if [ "$TERM" != "cygwin" ]; then
 fi
 
 touch ~/.bashrc
-touch ~/.zshrc
 
 if ! grep -Eq 'basics-setup' ~/.bashrc; then
     echo "Configuring bashrc"
@@ -38,13 +32,6 @@ if ! grep -Eq 'basics-setup' ~/.bashrc; then
     fi
 else
     echo "bashrc already configured"
-fi
-if ! grep -Eq 'basics-setup' ~/.zshrc; then
-    echo "Configuring zshrc"
-    cat config-templates/zshrc >> ~/.zshrc
-    cat config-templates/aliases >> ~/.zshrc
-else
-    echo "zshrc already configured"
 fi
 
 if [ ! -f ~/.ssh/config ]; then
