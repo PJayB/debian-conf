@@ -50,3 +50,10 @@ elif [ "$SHELL" = "/bin/zsh" ]; then
 fi
 
 gsettings set org.gnome.desktop.interface gtk-enable-primary-paste false
+gsettings set org.gnome.desktop.wm.preferences button-layout "':minimize,maximize,close'"
+gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "'<Super>t'"
+gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
+gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Shift><Alt>Tab']"
+gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward "['<Shift><Super>Tab']"
+gsettings set org.gnome.desktop.wm.keybindings switch-applications "['<Super>Tab']"
+
