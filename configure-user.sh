@@ -48,3 +48,5 @@ if [ "$SHELL" = "/bin/bash" ]; then
 elif [ "$SHELL" = "/bin/zsh" ]; then
     . ~/.zshrc
 fi
+
+gsettings set org.gnome.desktop.interface gtk-enable-primary-paste false
