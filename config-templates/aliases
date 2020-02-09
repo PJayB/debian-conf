@@ -11,3 +11,5 @@ alias du='du -hs'
 alias df='df -h'
 alias rless="less -R"
 alias i="~/setup-scripts/inspect.sh"
+alias grep="grep -sn"
+
