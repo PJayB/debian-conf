@@ -18,3 +18,5 @@ set -e
 git fetch "$origin" "$branch"
 git checkout "$branch"
 git reset --hard "$origin/$branch"
+git submodule update --init --recursive
+
