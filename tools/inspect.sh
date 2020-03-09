@@ -3,7 +3,7 @@ f="$1"
 
 set -e
 
-listing="ls -alh"
+listing="ls -alh --color"
 open="more"
 other="file"
 
