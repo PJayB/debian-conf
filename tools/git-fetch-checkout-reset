@@ -1,0 +1,20 @@
+#!/bin/bash
+origin="$1"
+branch="$2"
+if [ -z "$origin" ] || [ -z "$branch" ]; then
+    echo "Usage: $0 <origin> <branch>" >&2
+    exit 1
+fi
+
+files=$(git status -s)
+if [ -n "$files" ]; then
+    echo "Here's the status of your working tree:"
+    git status | head -n 15
+    echo "Press any key to erase and checkout $origin/$branch..."
+    read -n
+fi
+
+set -e
+git fetch "$origin" "$branch"
+git checkout "$branch"
+git reset --hard "$origin/$branch"
