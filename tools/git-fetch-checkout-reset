@@ -15,8 +15,12 @@ if [ -n "$files" ]; then
 fi
 
 set -e
+echo "Fetching..."
 git fetch "$origin" "$branch"
+echo "Checkout..."
 git checkout "$branch"
+echo "Resetting..."
 git reset --hard "$origin/$branch"
+echo "Updating submodules..."
 git submodule update --init --recursive
 
