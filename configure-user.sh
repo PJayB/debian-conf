@@ -21,6 +21,9 @@ if ! grep -Eq 'basics-setup' ~/.bashrc; then
     echo "# basics-setup" >> ~/.bashrc
     echo ". $(pwd)/config-templates/bashrc" >> ~/.bashrc
     echo ". $(pwd)/config-templates/aliases" >> ~/.bashrc
+
+    tools_folder="$(pwd)/tools"
+    echo "PATH=\$PATH:$tools_folder" >> ~/.bashrc
 else
     echo "bashrc already configured"
 fi
