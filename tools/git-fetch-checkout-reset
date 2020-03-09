@@ -23,4 +23,6 @@ echo "Resetting..."
 git reset --hard "$origin/$branch"
 echo "Updating submodules..."
 git submodule update --init --recursive
+echo "New status:"
+git status
 
