@@ -1,6 +1,10 @@
 #!/bin/bash
 origin="$1"
 branch="$2"
+if [ -n "$origin" ] && [ -z "$branch" ]; then
+    branch="$origin"
+    origin="origin"
+fi
 if [ -z "$origin" ] || [ -z "$branch" ]; then
     echo "Usage: $0 <origin> <branch>" >&2
     exit 1
