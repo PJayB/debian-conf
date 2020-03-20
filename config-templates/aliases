@@ -3,12 +3,15 @@
 alias tailf="tail -f"
 alias nano="nano -c"
 alias grepsrc="grep --color=auto -rIHn --include=\*.{h,cpp,cs,bindings,pl,pm,c}  --exclude-dir={.hg,.git}"
-alias neo="cmatrix"
 alias debug="gdb -ex=r --args"
-alias ll="ls -al --color=auto -h"
-alias xclip="xclip -selection c"
+if [ "$(uname)" == "Darwin" ]; then
+    alias ll="ls -alhG"
+else
+    alias ll="ls -alh --color=auto"
+    alias xclip="xclip -selection c"
+    alias neo="cmatrix"
+fi
 alias du='du -hs'
 alias df='df -h'
 alias rless="less -R"
-#alias grep="grep -sn"
 
