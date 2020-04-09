@@ -30,5 +30,6 @@ git clean -ffd .
 echo "Updating submodules..."
 git submodule update --init --recursive
 git submodule foreach git checkout .
+git clean -ffd .
 echo "New status:"
 git status
