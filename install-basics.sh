@@ -67,6 +67,8 @@ fi
 #pip install --upgrade pip
 #pip install --user mercurial_keyring
 
+git lfs install
+
 # Set up WSL-specific stuff
 if uname -r | grep "Microsoft"; then
     sudo apt-get purge -y openssh-server
