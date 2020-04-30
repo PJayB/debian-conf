@@ -34,7 +34,9 @@ fi
 
 if [ "$(uname -s)" == "Darwin" ]; then
     cp -v darwin/inputrc ~/.inputrc
+    CODEPATH="~/Library/Application Support/Code/User"
 else
+    CODEPATH="~/.config/Code/User"
     gsettings set org.gnome.desktop.interface gtk-enable-primary-paste false
     gsettings set org.gnome.desktop.wm.preferences button-layout "':minimize,maximize,close'"
     gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "'<Super>t'"
@@ -45,6 +47,9 @@ else
 
     dconf load /org/gnome/terminal/legacy/profiles:/ < config-templates/gnome-terminal-profiles.dconf
 fi
+
+mkdir -vp "$CODEPATH"
+cp -vnr $(pwd)/config-templates/vscode/* "$CODEPATH/"
 
 if [ "$SHELL" = "/bin/bash" ]; then
     . ~/.bashrc
