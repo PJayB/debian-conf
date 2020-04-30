@@ -7,6 +7,11 @@ if [ "$PKGMAN" = "" ]; then
     exit 1
 fi
 
+# If the package manager is brew, we may need to install brew
+if [ "$PKGMAN" == "brew" ] && ! brew -v ; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+fi
+
 # CentOS has a frankly ANCIENT mercurial installation
 if [ "$PKGMAN" = "yum" ]; then
 sudo sh -c 'cat > /etc/yum.repos.d/mercurial.repo' <<- EOM
@@ -53,6 +58,8 @@ elif [ "$PKGMAN" = "dnf" ]; then
 elif [ "$PKGMAN" = "pacman" ]; then
     sudo $PKGMAN -Syy --noconfirm
     sudo $PKGMAN -S --noconfirm $PACKAGES
+elif [ "$PKGMAN" = "brew" ]; then
+    sudo $PKGMAN install $PACKAGES
 else
     echo "$PKGMAN-based distros aren't supported."
     exit 1
