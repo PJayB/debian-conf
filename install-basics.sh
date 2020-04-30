@@ -59,7 +59,7 @@ elif [ "$PKGMAN" = "pacman" ]; then
     sudo $PKGMAN -Syy --noconfirm
     sudo $PKGMAN -S --noconfirm $PACKAGES
 elif [ "$PKGMAN" = "brew" ]; then
-    sudo $PKGMAN install $PACKAGES
+    $PKGMAN install $PACKAGES
 else
     echo "$PKGMAN-based distros aren't supported."
     exit 1
