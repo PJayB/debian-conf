@@ -35,9 +35,9 @@ fi
 if [ "$(uname -s)" == "Darwin" ]; then
     cp -v darwin/inputrc ~/.inputrc
     cp -v darwin/nanorc ~/.nanorc
-    CODEPATH="~/Library/Application Support/Code/User"
+    CODEPATH="$HOME/Library/Application Support/Code/User"
 else
-    CODEPATH="~/.config/Code/User"
+    CODEPATH="$HOME/.config/Code/User"
     gsettings set org.gnome.desktop.interface gtk-enable-primary-paste false
     gsettings set org.gnome.desktop.wm.preferences button-layout "':minimize,maximize,close'"
     gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "'<Super>t'"
