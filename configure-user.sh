@@ -10,9 +10,9 @@ fi
 [ -e ~/.gdbinit ] || ln -s $(pwd)/config-templates/gdbinit ~/.gdbinit
 [ -e ~/.tmux.conf ] || ln -s $(pwd)/config-templates/tmux.conf ~/.tmux.conf
 
-if [ "$TERM" != "cygwin" ]; then
-    sudo cp -v config-templates/lynx.cfg /etc/lynx.cfg
-fi
+#if [ "$TERM" != "cygwin" ]; then
+#    sudo cp -v config-templates/lynx.cfg /etc/lynx.cfg
+#fi
 
 touch ~/.bashrc
 
