@@ -5,10 +5,10 @@ if [ ! -d ~/.ssh ]; then
     mkdir ~/.ssh
 fi
 
-[ -e ~/.nanorc ] || ln -s $(pwd)/config-templates/nanorc ~/.nanorc
-[ -e ~/.gitconfig ] || ln -s $(pwd)/config-templates/gitconfig ~/.gitconfig
-[ -e ~/.gdbinit ] || ln -s $(pwd)/config-templates/gdbinit ~/.gdbinit
-[ -e ~/.tmux.conf ] || ln -s $(pwd)/config-templates/tmux.conf ~/.tmux.conf
+[ -e ~/.nanorc ] || ln -sv $(pwd)/config-templates/nanorc ~/.nanorc
+[ -e ~/.gitconfig ] || ln -sv $(pwd)/config-templates/gitconfig ~/.gitconfig
+[ -e ~/.gdbinit ] || ln -sv $(pwd)/config-templates/gdbinit ~/.gdbinit
+[ -e ~/.tmux.conf ] || ln -sv $(pwd)/config-templates/tmux.conf ~/.tmux.conf
 
 #if [ "$TERM" != "cygwin" ]; then
 #    sudo cp -v config-templates/lynx.cfg /etc/lynx.cfg
