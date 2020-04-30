@@ -34,6 +34,7 @@ fi
 
 if [ "$(uname -s)" == "Darwin" ]; then
     cp -v darwin/inputrc ~/.inputrc
+    cp -v darwin/nanorc ~/.nanorc
     CODEPATH="~/Library/Application Support/Code/User"
 else
     CODEPATH="~/.config/Code/User"
