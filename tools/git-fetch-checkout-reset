@@ -16,6 +16,8 @@ if [ -n "$files" ]; then
     git status | head -n 15
     echo "Press any key to erase and checkout $origin/$branch..."
     read -n 1
+    git reset HEAD .
+    git checkout .
 fi
 
 set -e
