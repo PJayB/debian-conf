@@ -14,4 +14,4 @@ fi
 alias du='du -hs'
 alias df='df -h'
 alias rless="less -R"
-
+alias branch="git rev-parse --abbrev-ref HEAD"
