@@ -1,6 +1,5 @@
 unset backup
 set tabsize 4
 set tabstospaces
-set const
 set smarthome
 
