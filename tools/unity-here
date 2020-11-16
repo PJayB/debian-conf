@@ -1,0 +1,27 @@
+#!/bin/bash
+projsettingsfile="./ProjectSettings/ProjectVersion.txt"
+if [ ! -f "$projsettingsfile" ]; then
+    echo "Can't find $projsettingsfile" >&2
+    exit 1
+fi
+
+version=$(grep "m_EditorVersion: " "$projsettingsfile" | sed 's/m_EditorVersion: //g')
+if [ -z "$version" ]; then
+    echo "Couldn't determine editor version for this project" >&2
+    exit 1
+fi
+
+unitypath="$HOME/Unity/Hub/Editor/$version/Editor/Unity"
+if [ ! -x "$unitypath" ]; then
+    echo "Can't find Unity at $unitypath" >&2
+    exit 1
+fi
+
+gdb -q \
+    "-ex=handle SIGXCPU SIG33 SIG35 SIG36 SIG37 SIGPWR SIGPIPE nostop noprint" \
+    -ex=r \
+    --args \
+    "$unitypath" \
+    -projectpath "." \
+    -logfile -
+
