@@ -27,11 +27,9 @@ echo "Checkout..."
 git checkout "$branch"
 echo "Resetting..."
 git reset --hard "$origin/$branch"
-echo "Cleaning..."
-git clean -ffd .
 echo "Updating submodules..."
 git submodule update --init --recursive
-git submodule foreach git checkout .
+echo "Cleaning..."
 git clean -ffd .
 echo "New status:"
 git status
