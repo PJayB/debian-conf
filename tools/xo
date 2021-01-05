@@ -1,0 +1,6 @@
+#!/bin/bash
+url="$1"
+if [ ! -e "$url" ] && ! echo "$url" | grep -q "://" ; then
+    url="https://$url"
+fi
+xdg-open "$url" >/dev/null &
