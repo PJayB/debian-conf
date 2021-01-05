@@ -1,14 +1,15 @@
 #!/bin/sh
 set -e
 
-if [ ! -d ~/.ssh ]; then
-    mkdir ~/.ssh
-fi
+mkdir -p ~/.ssh
+mkdir -p ~/.config/micro
 
 [ -e ~/.nanorc ] || ln -sv $(pwd)/config-templates/nanorc ~/.nanorc
 [ -e ~/.gitconfig ] || ln -sv $(pwd)/config-templates/gitconfig ~/.gitconfig
 [ -e ~/.gdbinit ] || ln -sv $(pwd)/config-templates/gdbinit ~/.gdbinit
 [ -e ~/.tmux.conf ] || ln -sv $(pwd)/config-templates/tmux.conf ~/.tmux.conf
+[ -e ~/.config/micro/bindings.json ] || ln -sv $(pwd)/config-templates/micro-bindings.json ~/.config/micro/bindings.json
+[ -e ~/.config/micro/settings.json ] || ln -sv $(pwd)/config-templates/micro-settings.json ~/.config/micro/settings.json
 
 #if [ "$TERM" != "cygwin" ]; then
 #    sudo cp -v config-templates/lynx.cfg /etc/lynx.cfg
