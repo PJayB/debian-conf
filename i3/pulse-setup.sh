@@ -26,4 +26,10 @@ elif [[ $i = 0 ]]; then
 else
     echo "Configuring $THESINK"
     echo "$THESINK" > $DEVFILE
+
+    i3statusconf="$HOME/.config/i3status/config"
+    if [ -f "$i3statusconf" ]; then
+      cp "$i3statusconf" "$i3statusconf.bak"
+      sed -r "s/\"pulse:.*\"/\"pulse:$THESINK\"/g" "$i3statusconf.bak" > "$i3statusconf"
+    fi
 fi
