@@ -47,3 +47,8 @@ cmatrix             | apt-get pacman
 cowsay              | apt-get
 toilet              | apt-get
 espeak              | apt-get
+
+# Eon stuff
+fzf                 | apt-get
+tree                | apt-get
+
