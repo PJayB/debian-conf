@@ -16,7 +16,9 @@ general {
 order += "ethernet _first_"
 #order += "battery all"
 order += "disk /"
+order += "disk /arc"
 order += "cpu_usage"
+order += "memory"
 #order += "load"
 order += "tztime local"
 order += "volume master"
@@ -44,12 +46,20 @@ cpu_usage {
     format = "cpu %usage"
 }
 
+memory {
+    format = "mem %available"
+}
+
 #load {
 #        format = "load %1min %5min %15min"
 #}
 
 disk "/" {
-        format = "/ %percentage_used"
+        format = "/ %avail"
+}
+
+disk "/arc" {
+        format = "/arc %avail"
 }
 
 load {
