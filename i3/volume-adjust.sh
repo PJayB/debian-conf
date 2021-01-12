@@ -11,7 +11,7 @@ fi
 echo "$PDEVICE $i"
 PDEVICE=$(cat $DEVFILE | grep "^[^#]")
 if [ "$1" = "togglemute" ]; then
-    pactl set-sink-mute toggle
+    pactl set-sink-mute $PDEVICE toggle
 else
     pactl set-sink-volume $PDEVICE $1
     pactl set-sink-mute $PDEVICE 0
