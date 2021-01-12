@@ -157,7 +157,10 @@ bar {
 
 focus_follows_mouse no
 
-# Set "1" to the index of your card
+# Media controls
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioRaiseVolume exec --no-startup-id ~/.config/i3/volume-adjust.sh +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id ~/.config/i3/volume-adjust.sh -5%
 bindsym XF86AudioMute exec --no-startup-id ~/.config/i3/volume-adjust.sh togglemute
@@ -179,5 +182,3 @@ exec ~/.config/i3/i3-startup.sh
 # Alt-Tab
 bindsym Mod1+Tab focus right
 bindsym Mod1+Shift+Tab focus left
-
-
