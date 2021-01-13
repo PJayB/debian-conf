@@ -15,6 +15,7 @@ cp -v ./i3-config $I3/config
 cp -v ./i3status-config ~/.config/i3status/config
 cp -v ./volume-adjust.sh $I3/
 cp -v ./i3-startup.sh $I3/
+cp -v ./lock.sh $I3/
 
 echo "TODO: If you want DPI scaling, output your DPI to $I3/custom-dpi"
 
