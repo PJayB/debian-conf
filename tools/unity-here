@@ -1,19 +1,42 @@
 #!/bin/bash
-projsettingsfile="./ProjectSettings/ProjectVersion.txt"
-if [ ! -f "$projsettingsfile" ]; then
-    echo "Can't find $projsettingsfile" >&2
-    exit 1
-fi
 
-version=$(grep "m_EditorVersion: " "$projsettingsfile" | sed 's/m_EditorVersion: //g')
+editorpath="$HOME/Unity/Hub/Editor"
+
+list_available() {
+  if [ ! -d "$editorpath" ]; then
+    echo "No editor installations available." >&2
+  else
+    find "$editorpath" -mindepth 1 -maxdepth 1 -type d -exec basename {} \;
+  fi
+}
+
+while [ -n "$1" ]; do
+  case "$1" in
+  --list-versions|-l)  list_available ; exit 0 ;;
+  --version|-v)        version="$2" ; shift ; shift ;;
+  *)                   break ;;
+  esac
+done
+
 if [ -z "$version" ]; then
-    echo "Couldn't determine editor version for this project" >&2
-    exit 1
+  projsettingsfile="./ProjectSettings/ProjectVersion.txt"
+  if [ ! -f "$projsettingsfile" ]; then
+      echo "Can't find $projsettingsfile" >&2
+      exit 1
+  fi
+
+  version=$(grep "m_EditorVersion: " "$projsettingsfile" | sed 's/m_EditorVersion: //g')
+  if [ -z "$version" ]; then
+      echo "Couldn't determine editor version for this project" >&2
+      exit 1
+  fi
 fi
 
-unitypath="$HOME/Unity/Hub/Editor/$version/Editor/Unity"
+unitypath="$editorpath/$version/Editor/Unity"
 if [ ! -x "$unitypath" ]; then
     echo "Can't find Unity at $unitypath" >&2
+    echo "Try using --version <version> from the below:" >&2
+    list_available >&2
     exit 1
 fi
 
@@ -22,6 +45,6 @@ gdb -q \
     -ex=r \
     --args \
     "$unitypath" \
+    "$@" \
     -projectpath "." \
     -logfile -
-
