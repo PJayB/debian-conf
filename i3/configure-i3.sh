@@ -3,12 +3,9 @@ set -e
 
 I3=~/.config/i3
 
-if [ ! -d $I3 ]; then
-    mkdir -p $I3
-fi
-if [ ! -d ~/.config/i3status ]; then
-    mkdir -p ~/.config/i3status
-fi
+mkdir -p $I3
+mkdir -p ~/.config/i3status
+mkdir -p ~/.config/dunst
 
 cd $(dirname $0)
 cp -v ./i3-config $I3/config
@@ -16,10 +13,16 @@ cp -v ./i3status-config ~/.config/i3status/config
 cp -v ./volume-adjust.sh $I3/
 cp -v ./i3-startup.sh $I3/
 cp -v ./lock.sh $I3/
+cp -v ./dunstrc ~/.config/dunst/dunstrc
 
-echo "TODO: If you want DPI scaling, output your DPI to $I3/custom-dpi"
+echo "NOTE: If you want DPI scaling, output your DPI to $I3/custom-dpi"
 
-source pulse-setup.sh
+# Restart dunst to pick up the dunstrc
+killall dunst; notify-send "i3 Configured!"
 
-echo "TODO: don't forget to install arandr"
+# Try to setup pulse audio (may fail to select one on desktops with lots of audio sinks)
+source pulse-setup.sh || :
+
+# Warn if arandr is not installed
+[ -e /usr/bin/arandr ] || echo "NOTE: Don't forget to install arandr if you want better multimonitor config"
 
