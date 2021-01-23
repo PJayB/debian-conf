@@ -26,3 +26,7 @@ source pulse-setup.sh || :
 # Warn if arandr is not installed
 [ -e /usr/bin/arandr ] || echo "NOTE: Don't forget to install arandr if you want better multimonitor config"
 
+# Set up pulse (or try, anyway)
+./pulse-setup.sh || echo "Please run pulse-setup.sh again to fix volume control"
+
+
