@@ -9,6 +9,8 @@ if [ "$1" != "post" ] && [ "$1" != "resume" ]; then
   exit 0
 fi
 
+exec 1>/tmp/on-sleep.log >2&1
+
 # Restart chrome GPU processes after PC wakes up
 /home/pete/setup-scripts/tools/restore-chrome.sh
 
