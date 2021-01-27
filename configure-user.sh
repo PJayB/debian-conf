@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 
 mkdir -p ~/.ssh
@@ -22,9 +22,6 @@ if ! grep -Eq 'basics-setup' ~/.bashrc; then
     echo "# basics-setup" >> ~/.bashrc
     echo ". $(pwd)/config-templates/bashrc" >> ~/.bashrc
     echo ". $(pwd)/config-templates/aliases" >> ~/.bashrc
-
-    tools_folder="$(pwd)/tools"
-    echo "PATH=\$PATH:$tools_folder" >> ~/.bashrc
 else
     echo "bashrc already configured"
 fi
@@ -33,7 +30,7 @@ if [ ! -f ~/.ssh/config ]; then
     echo "Don't forget to set up your ssh keys!"
 fi
 
-if [ "$(uname -s)" == "Darwin" ]; then
+if [ "x$(uname -s)" = "xDarwin" ]; then
     cp -v darwin/inputrc ~/.inputrc
     cp -v darwin/nanorc ~/.nanorc
     CODEPATH="$HOME/Library/Application Support/Code/User"
@@ -41,7 +38,7 @@ else
     CODEPATH="$HOME/.config/Code/User"
     gsettings set org.gnome.desktop.interface gtk-enable-primary-paste false
     gsettings set org.gnome.desktop.wm.preferences button-layout "':minimize,maximize,close'"
-    gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "'<Super>t'"
+    gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Super>t']"
     gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
     gsettings set org.gnome.desktop.wm.keybindings switch-windows-backward "['<Shift><Alt>Tab']"
     gsettings set org.gnome.desktop.wm.keybindings switch-applications-backward "['<Shift><Super>Tab']"
@@ -52,6 +49,9 @@ fi
 
 mkdir -vp "$CODEPATH"
 cp -vnr $(pwd)/config-templates/vscode/* "$CODEPATH/"
+
+mkdir -p "$HOME/.local/bin"
+rsync -vac "$(pwd)/tools/" "$HOME/.local/bin"
 
 if [ "$SHELL" = "/bin/bash" ]; then
     . ~/.bashrc
