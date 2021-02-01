@@ -21,6 +21,6 @@ i3-msg "workspace 1; layout stacking; exec i3-sensible-terminal;"
 # Execute custom scripts
 CUSTOMSCRIPT=~/.config/i3/custom-startup.sh
 if [ -f $CUSTOMSCRIPT ]; then
-    source "$CUSTOMSCRIPT"
+    /bin/bash "$CUSTOMSCRIPT"
 fi
 
