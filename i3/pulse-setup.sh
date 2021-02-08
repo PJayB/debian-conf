@@ -33,3 +33,5 @@ else
       sed -r "s/\"pulse:.*\"/\"pulse:$THESINK\"/g" "$i3statusconf.bak" > "$i3statusconf"
     fi
 fi
+
+i3-msg restart
