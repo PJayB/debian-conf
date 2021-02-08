@@ -9,7 +9,7 @@ mkdir -p ~/.config/dunst
 
 cd $(dirname $0)
 cp -v ./i3-config $I3/config
-cp -v ./i3status-config ~/.config/i3status/config
+cp -nv ./i3status-config ~/.config/i3status/config || echo "NOTE: i3status not overwritten" >&2
 cp -v ./volume-adjust.sh $I3/
 cp -v ./i3-startup.sh $I3/
 cp -v ./lock.sh $I3/
