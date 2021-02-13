@@ -8,12 +8,12 @@ mkdir -p ~/.config/i3status
 mkdir -p ~/.config/dunst
 
 cd $(dirname $0)
-cp -v ./i3-config $I3/config
+cp -nv ./i3-config $I3/config
 cp -nv ./i3status-config ~/.config/i3status/config || echo "NOTE: i3status not overwritten" >&2
-cp -v ./volume-adjust.sh $I3/
-cp -v ./i3-startup.sh $I3/
-cp -v ./lock.sh $I3/
-cp -v ./dunstrc ~/.config/dunst/dunstrc
+cp -nv ./volume-adjust.sh $I3/
+cp -nv ./i3-startup.sh $I3/
+cp -nv ./lock.sh $I3/
+cp -nv ./dunstrc ~/.config/dunst/dunstrc
 
 echo "NOTE: If you want DPI scaling, output your DPI to $I3/custom-dpi"
 

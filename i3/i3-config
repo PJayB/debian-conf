@@ -183,3 +183,9 @@ exec ~/.config/i3/i3-startup.sh
 # Alt-Tab
 bindsym Mod1+Tab focus right
 bindsym Mod1+Shift+Tab focus left
+
+
+for_window [title="glxgears"] floating enable
+for_window [title="Polytopia"] floating enable
+for_window [title="QtCar"] floating enable
+for_window [title="RearDisplay"] floating enable
