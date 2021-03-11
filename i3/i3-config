@@ -184,5 +184,5 @@ exec ~/.config/i3/i3-startup.sh
 bindsym Mod1+Tab focus right
 bindsym Mod1+Shift+Tab focus left
 
-for_window [title="glxgears"] floating enable
-for_window [title="Calculator"] floating enable
+for_window [title="^glxgears$"] floating enable
+for_window [title="^Calculator$"] floating enable
