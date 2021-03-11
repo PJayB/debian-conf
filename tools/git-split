@@ -1,0 +1,68 @@
+#!/bin/bash
+flags=( )
+while [ -n "$1" ]; do
+    case "$1" in
+    --push|-p)      do_push=true ;;
+    --keep|-k)      do_keep=true ;;
+    --resume|-r)    do_resume=true ;;
+    --force|-f)     flags+=( "-f" ) ;;
+    *)              break ;;
+    esac
+    shift
+done
+
+commit_range="$1"
+branch="$2"
+base="$3"
+
+usage() {
+    echo "Usage: $0 [--push] commit_range branch branch_base"
+}
+
+usage_error() {
+    usage >&2
+    if [ -n "$*" ]; then
+        echo "Error: $*" >&2
+    fi
+    exit 1
+}
+
+set -e
+
+if [ -z "$do_resume" ]; then
+    if [ -z "$commit_range" ] || [ -z "$branch" ]; then
+        usage_error
+    fi
+
+    commit_range="$(git rev-parse "$commit_range" | sed 's/\^//g')"
+
+    original_branch="$(git branch --show-current)"
+    if [ -z "$original_branch" ]; then
+        original_branch="$(git rev-parse HEAD)"
+    fi
+
+    if [ -n "$base" ]; then
+        git checkout "${flags[@]}" -B "$branch" "$base"
+    else
+        git checkout "${flags[@]}" -b "$branch"
+    fi
+
+    git cherry-pick "$commit_range"
+else
+    git cherry-pick --resume
+    echo "(Actually don't. Use '$0 --resume'.)"
+fi
+
+if [ -n "$do_push" ]; then
+    git push -u origin "$branch"
+
+    if [ -z "$do_keep" ]; then
+        if [ -z "$original_branch" ]; then
+            echo "Can't reset back to original branch -- lost state"
+        else
+            git checkout "$original_branch"
+            git branch --delete "$branch"
+        fi
+    fi
+fi
+
