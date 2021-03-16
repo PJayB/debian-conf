@@ -177,12 +177,23 @@ set $TERMINAL gnome-terminal
 # Turn on numlock
 exec_always --no-startup-id numlockx on
 
-# Run the startup script
-exec ~/.config/i3/i3-startup.sh
-
 # Alt-Tab
 bindsym Mod1+Tab focus right
 bindsym Mod1+Shift+Tab focus left
 
+# Screenshot
+bindsym Print exec ~/.config/i3/screenshot.sh --window
+bindsym $mod+Print exec ~/.config/i3/screenshot.sh --interactive
+
+# Run the startup script
+exec ~/.config/i3/i3-startup.sh
+
 for_window [title="^glxgears$"] floating enable
 for_window [title="^Calculator$"] floating enable
+
+# Put machine-specific modifications below this line
+# --------------------------------------------------
+
+
+
+
