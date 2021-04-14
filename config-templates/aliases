@@ -16,3 +16,5 @@ alias df='df -h'
 alias rless="less -R"
 alias branch="git rev-parse --abbrev-ref HEAD"
 alias Rgrep="grep -RIsin --exclude-dir=.git"
+alias bc='bc -l'
+
