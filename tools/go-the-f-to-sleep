@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ `whoami` != 'root' ]; then
+    echo "You must be root to do this."
+    exit 1
+fi
+
+declare -a states=( $(cat /proc/acpi/wakeup | grep enabled | grep -vE '^PWRB' | awk '{ print $1 }') )
+for state in "${states[@]}" ; do
+  printf "Disabling "
+  echo "$state" | sudo tee /proc/acpi/wakeup
+done
+
+grep "enabled" /proc/acpi/wakeup
