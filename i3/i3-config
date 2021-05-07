@@ -190,6 +190,7 @@ exec ~/.config/i3/i3-startup.sh
 
 for_window [title="^glxgears$"] floating enable
 for_window [title="^Calculator$"] floating enable
+for_window [title="^Timeular$"] floating disable
 
 # Put machine-specific modifications below this line
 # --------------------------------------------------
