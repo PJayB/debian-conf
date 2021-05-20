@@ -1,0 +1,3 @@
+[submodule "mkschroot"]
+	path = mkschroot
+	url = git@github.com:PJayB/mkschroot.git
