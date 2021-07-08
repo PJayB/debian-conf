@@ -4,6 +4,7 @@ set -e
 mkdir -p ~/.ssh
 mkdir -p ~/.config/micro
 
+[ -e ~/.calcrc ] || ln -sv $(pwd)/config-templates/calcrc ~/.calcrc
 [ -e ~/.nanorc ] || ln -sv $(pwd)/config-templates/nanorc ~/.nanorc
 [ -e ~/.gitconfig ] || ln -sv $(pwd)/config-templates/gitconfig ~/.gitconfig
 [ -e ~/.gdbinit ] || ln -sv $(pwd)/config-templates/gdbinit ~/.gdbinit
